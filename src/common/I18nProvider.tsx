@@ -1,10 +1,10 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { IntlProvider } from "react-intl";
 import Locale from "../../localization";
 
 const locale = Locale.de;
 
-const IntlContext: React.FunctionComponent = ({ children }) => {
+export default function I18nProvider({ children }: PropsWithChildren<{}>) {
   return (
     <IntlProvider
       locale={locale.locale}
@@ -14,6 +14,4 @@ const IntlContext: React.FunctionComponent = ({ children }) => {
       {children}
     </IntlProvider>
   );
-};
-
-export default IntlContext;
+}

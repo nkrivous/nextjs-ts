@@ -1,9 +1,9 @@
 import { GetServerSidePropsContext } from "next";
 import React from "react";
-import { sampleUserData } from "~/mocks/users/sample-data";
 import Layout from "~/src/components/Layout";
 import UserCard from "~/src/modules/users/components/UserCard";
 import { User } from "~/src/modules/users/types/user";
+import axios from "axios";
 
 interface Props {
   item?: User;
@@ -34,11 +34,13 @@ export default function UserIdPage({ item, errors }: Props) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   try {
-    // const users: User[] = await (await fetch("/api/users")).json();
-    // const userId = parseInt("102");
-    const users: User[] = sampleUserData;
+    const users: User[] = await axios
+      .get("http://localhost:3000/api/users")
+      .then((res) => res.data);
 
-    const user = users.find((u) => u.id === 102);
+    const userId = parseInt(context.params?.id as string);
+
+    const user = users.find((u) => u.id === userId);
     if (!user) {
       throw new Error("User not found");
     }

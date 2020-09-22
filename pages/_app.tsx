@@ -1,11 +1,11 @@
 import React from "react";
 import { AppProps } from "next/app";
-import IntlContext from "../src/common/IntlContext";
+//import I18nProvider from "~/src/common/I18nProvider";
 
 export default function CustomApp({ Component, pageProps }: AppProps) {
   return (
-    <IntlContext>
-      <Component {...pageProps} />
-    </IntlContext>
+    // <I18nProvider>
+    <Component {...pageProps} />
+    // </I18nProvider>
   );
 }

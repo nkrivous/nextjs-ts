@@ -1,4 +1,3 @@
-import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { sampleUserData } from "~/mocks/users/sample-data";
 import Layout from "~/src/components/Layout";
