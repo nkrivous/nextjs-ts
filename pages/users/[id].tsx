@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "~/src/components/Layout";
 import UserCard from "~/src/modules/users/components/UserCard";
 import { User } from "~/src/modules/users/types/user";
-import axios from "axios";
+import { sampleUserData } from "~/mocks/users/sample-data";
 
 interface Props {
   item?: User;
@@ -34,9 +34,7 @@ export default function UserIdPage({ item, errors }: Props) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   try {
-    const users: User[] = await axios
-      .get("http://localhost:3000/api/users")
-      .then((res) => res.data);
+    const users: User[] = sampleUserData;
 
     const userId = parseInt(context.params?.id as string);
 

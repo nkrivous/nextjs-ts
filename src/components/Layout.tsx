@@ -21,19 +21,27 @@ export default function Layout({
         <nav>
           <Link href="/">
             <a>Home</a>
-          </Link>{" "}
-          |{" "}
+          </Link>
+          |
           <Link href="/about">
             <a>About</a>
-          </Link>{" "}
-          |{" "}
+          </Link>
+          |
           <Link href="/users">
             <a>Users List</a>
-          </Link>{" "}
+          </Link>
+          |
+          <Link href="/static-users">
+            <a>Static Users List</a>
+          </Link>
+          |
+          <Link href="/last-update">
+            <a>Last update</a>
+          </Link>
           | <a href="/api/users">Users API</a>
         </nav>
       </header>
-      {children}
+      <main>{children}</main>
       <footer>
         <hr />
         <span>I'm here to stay (Footer)</span>
