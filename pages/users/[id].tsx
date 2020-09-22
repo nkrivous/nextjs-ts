@@ -1,61 +1,49 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetServerSidePropsContext } from "next";
+import React from "react";
+import { sampleUserData } from "~/mocks/users/sample-data";
+import Layout from "~/src/components/Layout";
+import UserCard from "~/src/modules/users/components/UserCard";
+import { User } from "~/src/modules/users/types/user";
 
-import { User } from '../../interfaces'
-import { sampleUserData } from '../../utils/sample-data'
-import Layout from '../../components/Layout'
-import ListDetail from '../../components/ListDetail'
-
-type Props = {
-  item?: User
-  errors?: string
+interface Props {
+  item?: User;
+  errors?: string;
 }
 
-const StaticPropsDetail = ({ item, errors }: Props) => {
+export default function UserIdPage({ item, errors }: Props) {
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
         <p>
-          <span style={{ color: 'red' }}>Error:</span> {errors}
+          <span style={{ color: "red" }}>Error:</span> {errors}
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
     <Layout
       title={`${
-        item ? item.name : 'User Detail'
+        item ? item.name : "User Detail"
       } | Next.js + TypeScript Example`}
     >
-      {item && <ListDetail item={item} />}
+      {item && <UserCard item={item} />}
     </Layout>
-  )
+  );
 }
 
-export default StaticPropsDetail
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Get the paths we want to pre-render based on users
-  const paths = sampleUserData.map((user) => ({
-    params: { id: user.id.toString() },
-  }))
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries.
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   try {
-    const id = params?.id
-    const item = sampleUserData.find((data) => data.id === Number(id))
-    // By returning { props: item }, the StaticPropsDetail component
-    // will receive `item` as a prop at build time
-    return { props: { item } }
-  } catch (err) {
-    return { props: { errors: err.message } }
+    // const users: User[] = await (await fetch("/api/users")).json();
+    // const userId = parseInt("102");
+    const users: User[] = sampleUserData;
+
+    const user = users.find((u) => u.id === 102);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    return { props: { item: user } };
+  } catch (e) {
+    return { props: { errors: JSON.stringify(e) } };
   }
 }
