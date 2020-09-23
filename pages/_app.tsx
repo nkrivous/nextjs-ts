@@ -2,6 +2,8 @@ import React from "react";
 import { AppProps } from "next/app";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { theme } from "~/src/theme/theme";
+import "~/src/theme/font-face.css";
+
 //import I18nProvider from "~/src/common/I18nProvider";
 
 export default function CustomApp({ Component, pageProps }: AppProps) {
