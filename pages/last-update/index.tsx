@@ -1,3 +1,4 @@
+import { Typography, Divider } from "@material-ui/core";
 import React from "react";
 import Layout from "~/src/components/Layout";
 
@@ -7,8 +8,10 @@ interface Props {
 
 export default function LastUpdatePage({ time }: Props) {
   return (
-    <Layout title="Time static generation">
-      <p>Last updated: {time}</p>
+    <Layout title="Last Update | Next.js + TypeScript Example">
+      <Typography variant="h1">Last Update</Typography>
+      <Divider />
+      <Typography variant="body1">{time}</Typography>
     </Layout>
   );
 }

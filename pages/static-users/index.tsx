@@ -1,5 +1,6 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { Divider, Link, Typography } from "@material-ui/core";
+import NextLink from "next/link";
+import React from "react";
 import { sampleUserData } from "~/mocks/users/sample-data";
 import Layout from "~/src/components/Layout";
 import UserList from "~/src/modules/users/components/UserList";
@@ -10,30 +11,20 @@ interface Props {
 }
 
 export default function StaticUsersPage({ items }: Props) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log("date", new Date());
-  }, []);
   return (
-    <Layout title="Users List | Next.js + TypeScript Example">
-      <h1>Users List</h1>
-      <p>
-        Example fetching data from inside <code>getStaticProps()</code>.
-      </p>
-      <p>You are currently on: /users</p>
+    <Layout title="Static Users List | Next.js + TypeScript Example">
+      <Typography variant="h1">Static Users List</Typography>
+      <Divider />
+      <Typography variant="subtitle1">
+        Example fetching data from inside <code>getStaticProps()</code>
+      </Typography>
+      <Typography variant="body1">
+        You are currently on: /static-users
+      </Typography>
       <UserList items={items} />
-      <p>
-        <Link href="/">
-          <a>Go home</a>
-        </Link>
-      </p>
-      <button
-        onClick={() => {
-          setCount((value) => value + 1);
-        }}
-      >
-        Click me: {count}
-      </button>
+      <NextLink href="/">
+        <Link href="/">Go home</Link>
+      </NextLink>
     </Layout>
   );
 }

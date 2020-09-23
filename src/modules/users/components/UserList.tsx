@@ -1,3 +1,4 @@
+import { List, ListItem } from "@material-ui/core";
 import React from "react";
 import { User } from "../types/user";
 import UserItem from "./UserItem";
@@ -8,12 +9,12 @@ interface Props {
 
 export default function UserList({ items }: Props) {
   return (
-    <ul>
+    <List>
       {items.map((item) => (
-        <li key={item.id}>
+        <ListItem key={item.id}>
           <UserItem data={item} />
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 }

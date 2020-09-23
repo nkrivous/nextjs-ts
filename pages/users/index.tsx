@@ -1,4 +1,6 @@
-import Link from "next/link";
+import { Typography, Divider, Link } from "@material-ui/core";
+import NextLink from "next/link";
+import React from "react";
 import { sampleUserData } from "~/mocks/users/sample-data";
 import Layout from "~/src/components/Layout";
 import UserList from "~/src/modules/users/components/UserList";
@@ -11,17 +13,16 @@ interface Props {
 export default function UsersPage({ items }: Props) {
   return (
     <Layout title="Users List | Next.js + TypeScript Example">
-      <h1>Users List</h1>
-      <p>
-        Example fetching data from inside <code>getStaticProps()</code>.
-      </p>
-      <p>You are currently on: /users</p>
+      <Typography variant="h1">Users List</Typography>
+      <Divider />
+      <Typography variant="subtitle1">
+        Example fetching data from inside <code>getServerSideProps()</code>
+      </Typography>
+      <Typography variant="body1">You are currently on: /users</Typography>
       <UserList items={items} />
-      <p>
-        <Link href="/">
-          <a>Go home</a>
-        </Link>
-      </p>
+      <NextLink href="/">
+        <Link href="/">Go home</Link>
+      </NextLink>
     </Layout>
   );
 }
