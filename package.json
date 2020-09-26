@@ -1,6 +1,7 @@
 {
   "name": "nextjs-ts",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
@@ -9,6 +10,11 @@
   },
   "dependencies": {
     "@material-ui/core": "4.11.0",
+    "@sentry/browser": "5.24.2",
+    "@sentry/integrations": "5.24.2",
+    "@sentry/node": "5.24.2",
+    "@sentry/webpack-plugin": "1.13.0",
+    "@zeit/next-source-maps": "0.0.4-canary.1",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -19,6 +25,5 @@
     "@types/react": "16.9.49",
     "@types/react-dom": "16.9.8",
     "typescript": "4.0.3"
-  },
-  "license": "MIT"
+  }
 }
