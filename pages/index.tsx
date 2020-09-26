@@ -10,13 +10,13 @@ export default function IndexPage() {
       <Divider />
       <ul>
         <li>
-          <NextLink href="/about">
-            <Link href="/about">About</Link>
+          <NextLink href="/about" passHref>
+            <Link>About</Link>
           </NextLink>
         </li>
         <li>
-          <NextLink href="/users">
-            <Link href="/users">Users List</Link>
+          <NextLink href="/users" passHref>
+            <Link>Users List</Link>
           </NextLink>
         </li>
       </ul>

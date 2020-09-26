@@ -20,8 +20,8 @@ export default function UsersPage({ items }: Props) {
       </Typography>
       <Typography variant="body1">You are currently on: /users</Typography>
       <UserList items={items} />
-      <NextLink href="/">
-        <Link href="/">Go home</Link>
+      <NextLink href="/" passHref>
+        <Link>Go home</Link>
       </NextLink>
     </Layout>
   );

@@ -11,7 +11,7 @@ export default function UserItem({ data }: Props) {
   return (
     <ListItemText>
       <NextLink href="/users/[id]" as={`/users/${data.id}`}>
-        <Link href={`/users/${data.id}`}>
+        <Link>
           {data.id}: {data.name}
         </Link>
       </NextLink>

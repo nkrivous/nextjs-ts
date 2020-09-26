@@ -50,40 +50,32 @@ export default function Layout({
       <header>
         <AppBar position="static">
           <Toolbar component="nav">
-            <NextLink href="/">
-              <Link className={classes.link} color="inherit" href="/">
+            <NextLink href="/" passHref>
+              <Link className={classes.link} color="inherit">
                 Home
               </Link>
             </NextLink>
 
-            <NextLink href="/about">
-              <Link className={classes.link} color="inherit" href="/about">
+            <NextLink href="/about" passHref>
+              <Link className={classes.link} color="inherit">
                 About
               </Link>
             </NextLink>
 
-            <NextLink href="/users">
-              <Link className={classes.link} color="inherit" href="/users">
+            <NextLink href="/users" passHref>
+              <Link className={classes.link} color="inherit">
                 Users List
               </Link>
             </NextLink>
 
-            <NextLink href="/static-users">
-              <Link
-                className={classes.link}
-                color="inherit"
-                href="/static-users"
-              >
+            <NextLink href="/static-users" passHref>
+              <Link className={classes.link} color="inherit">
                 Static Users List
               </Link>
             </NextLink>
 
             <NextLink href="/last-update">
-              <Link
-                className={classes.link}
-                color="inherit"
-                href="/last-update"
-              >
+              <Link className={classes.link} color="inherit">
                 Last update
               </Link>
             </NextLink>

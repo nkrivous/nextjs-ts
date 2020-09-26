@@ -22,8 +22,8 @@ export default function AboutPage() {
         </Button>
       </Box>
       <p>
-        <NextLink href="/">
-          <Link href="/">Go home</Link>
+        <NextLink href="/" passHref>
+          <Link>Go home</Link>
         </NextLink>
       </p>
     </Layout>

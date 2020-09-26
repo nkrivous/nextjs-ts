@@ -22,8 +22,8 @@ export default function StaticUsersPage({ items }: Props) {
         You are currently on: /static-users
       </Typography>
       <UserList items={items} />
-      <NextLink href="/">
-        <Link href="/">Go home</Link>
+      <NextLink href="/" passHref>
+        <Link>Go home</Link>
       </NextLink>
     </Layout>
   );
