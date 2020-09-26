@@ -74,9 +74,21 @@ export default function Layout({
               </Link>
             </NextLink>
 
-            <NextLink href="/last-update">
+            <NextLink href="/last-update" passHref>
               <Link className={classes.link} color="inherit">
                 Last update
+              </Link>
+            </NextLink>
+
+            <NextLink href="/server-error" passHref>
+              <Link className={classes.link} color="inherit">
+                Server Error
+              </Link>
+            </NextLink>
+
+            <NextLink href="/runtime-error" passHref>
+              <Link className={classes.link} color="inherit">
+                Runtime Error
               </Link>
             </NextLink>
 
