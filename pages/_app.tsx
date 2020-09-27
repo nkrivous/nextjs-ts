@@ -2,11 +2,20 @@ import React from "react";
 import { AppProps } from "next/app";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { theme } from "~/src/theme/theme";
+import { initSentry } from "~/src/sentry";
 import "~/src/theme/font-face.css";
 
 //import I18nProvider from "~/src/common/I18nProvider";
 
-export default function CustomApp({ Component, pageProps }: AppProps) {
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  initSentry();
+}
+
+export default function CustomApp({
+  Component,
+  pageProps,
+  err,
+}: AppProps & { err: Error }) {
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     jssStyles?.parentElement?.removeChild(jssStyles);
@@ -16,7 +25,7 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
     // <I18nProvider>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Component {...pageProps} />
+      <Component {...pageProps} err={err} />
     </ThemeProvider>
     // </I18nProvider>
   );

@@ -2,7 +2,7 @@ interface Props {
   data: unknown;
 }
 
-export default function ServerErrorPage({ data }: Props) {
+export default function RuntimeErrorPage({ data }: Props) {
   return (data as Array<undefined>)[0];
 }
 
