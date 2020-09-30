@@ -19,6 +19,6 @@ export function initSentry() {
     ],
     tracesSampleRate: 0.3,
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-    release: process.env.VERCEL_GITLAB_COMMIT_SHA,
+    release: process.env.VERCEL_GITHUB_COMMIT_SHA,
   });
 }
