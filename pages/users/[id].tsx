@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from "next";
 import React from "react";
-import Layout from "~/src/components/Layout";
+import Layout from "src/components/Layout";
 import UserCard from "~/src/modules/users/components/UserCard";
 import { User } from "~/src/modules/users/types/user";
 import { sampleUserData } from "~/mocks/users/sample-data";
